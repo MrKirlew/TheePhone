@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">Kirlew AI Agent</string>
+    <string name="web_client_id" translatable="false">843267258954-mc04n5od104s75to3umjl46rva3p0r0s.apps.googleusercontent.com</string>
+    <string name="start_recording">Start Recording</string>
+    <string name="stop_recording">Stop Recording</string>
+    <string name="sending_data">Sending data...</string>
+    <string name="response_format">Response: %s</string>
+    <string name="error_format">Error: %s</string>
+    <string name="show_camera">📷 Show Camera</string>
+    <string name="hide_camera">📷 Hide Camera</string>
+    <string name="welcome_message">Welcome %s! Ready to assist you.</string>
+    <string name="welcome_default">Welcome! Start speaking or type your command below.</string>
+    <string name="listening_coming_soon">Listening feature coming soon!</string>
+    <string name="listen_button">👂 Listen</string>
+    <string name="stop_listening_button">🛑 Stop Listening</string>
+    <string name="ready">Ready</string>
+    <string name="listening_status">Listening...</string>
+    <string name="speak_now">Speak now...</string>
+    <string name="processing">Processing...</string>
+    <string name="sign_out">🚪 Sign Out</string>
+    <string name="signed_out_success">Signed out successfully</string>
+    <string name="signed_in_as">Signed in as: %s</string>
+    <string name="welcome_sign_in">Welcome! Sign in to continue.</string>
+</resources>

@@ -1,0 +1,42 @@
+# Cloud Function Deployment Configuration
+# Deploy with: gcloud functions deploy multimodal-agent-orchestrator --source . --runtime python312
+
+name: multimodal-agent-orchestrator
+runtime: python312
+entry_point: multimodal_agent_orchestrator
+region: us-central1
+memory: 2048MB
+timeout: 540s
+max_instances: 100
+min_instances: 1
+
+# Environment variables (set these in Cloud Console or via gcloud)
+env_variables:
+  GEMINI_API_KEY: "YOUR_GEMINI_API_KEY"
+  GOOGLE_CLOUD_PROJECT: "twothreeatefi"
+
+# Service account should have these roles:
+# - Cloud Speech-to-Text User
+# - Cloud Text-to-Speech User
+# - Cloud Translation API User  
+# - Secret Manager Secret Accessor
+# - Cloud Functions Invoker
+
+# VPC connector (if needed for private resources)
+# vpc_connector: projects/PROJECT_ID/locations/REGION/connectors/CONNECTOR_NAME
+
+# Ingress settings
+ingress_settings: ALLOW_ALL
+
+# Trigger
+trigger:
+  - http
+  
+# Required APIs:
+# - Cloud Functions API
+# - Cloud Speech-to-Text API
+# - Cloud Text-to-Speech API
+# - Cloud Translation API
+# - Secret Manager API
+# - Vertex AI API
+# - Gemini API

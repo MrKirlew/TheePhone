@@ -1,0 +1,20 @@
+# Security Policy for KirlewAI Project
+constraint: constraints/compute.requireOsLogin
+booleanPolicy:
+  enforced: true
+---
+constraint: constraints/iam.disableServiceAccountKeyCreation
+booleanPolicy:
+  enforced: false  # We need service account keys for backend
+---
+constraint: constraints/storage.uniformBucketLevelAccess
+booleanPolicy:
+  enforced: true
+---
+# Restrict allowed OAuth redirect URIs
+constraint: constraints/iam.allowedOAuthRedirectUris
+listPolicy:
+  allowedValues:
+    - "https://your-domain.com/*"
+    - "https://*.cloudfunctions.net/*"
+    - "https://*.run.app/*"

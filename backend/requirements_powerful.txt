@@ -1,0 +1,13 @@
+functions-framework==3.*
+google-cloud-speech==2.*
+google-cloud-texttospeech==2.*
+google-cloud-aiplatform==1.*
+google-cloud-secret-manager==2.*
+google-api-python-client==2.*
+google-auth-oauthlib==1.*
+google-auth==2.*
+flask==2.*
+werkzeug==2.*
+vertexai==1.*
+PyJWT==2.*
+requests==2.*

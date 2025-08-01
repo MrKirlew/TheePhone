@@ -1,0 +1,33 @@
+name: Backend CD
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'backend/**'
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Authenticate to Google Cloud
+      uses: 'google-github-actions/auth@v2'
+      with:
+        credentials_json: '${{ secrets.GCP_SA_KEY }}'
+
+    - name: Deploy Cloud Function
+      uses: 'google-github-actions/deploy-cloud-functions@v2'
+      with:
+        name: multimodal-agent-orchestrator
+        runtime: python311
+        project_id: ${{ secrets.GCP_PROJECT_ID }}
+        source_dir: ./backend
+        entry_point: multimodal_agent_orchestrator
+        region: us-central1
+        env_vars: |
+          SECRET_NAME=oauth-client-secret
+        # Service account for the function
+        service_account_email: ${{ secrets.GCP_PROJECT_ID }}@appspot.gserviceaccount.com

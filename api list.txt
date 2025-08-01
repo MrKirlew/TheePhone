@@ -1,0 +1,59 @@
+Cloud Run Admin API	
+Cloud Text-to-Speech API		
+Vertex AI API	26	
+Secret Manager API		
+Cloud Speech-to-Text API		
+Artifact Registry API		
+Cloud Functions API		
+Gemini for Google Cloud API	
+Cloud Build API	2	
+Cloud Storage API		
+Analytics Hub API					
+BigQuery API					
+BigQuery Connection API					
+BigQuery Data Policy API					
+BigQuery Migration API					
+BigQuery Reservation API					
+BigQuery Storage API					
+Cloud Asset API					
+Cloud Dataplex API					
+Cloud Datastore API					
+Cloud Identity API					
+Cloud Identity-Aware Proxy API					
+Cloud Logging API					
+Cloud Monitoring API					
+Cloud Pub/Sub API					
+Cloud Resource Manager API					
+Cloud SQL					
+Cloud Storage					
+Cloud Trace API					
+Cloud Vision API					
+Contacts API					
+Container Registry API					
+Dataform API					
+Drive Activity API					
+Firebase Cloud Messaging API					
+Firebase Installations API					
+Gemini Cloud Assist API					
+Generative Language API					
+Geolocation API					
+Gmail API					
+Google Calendar API					
+Google Chat API					
+Google Cloud APIs					
+Google Cloud Storage JSON API					
+Google Docs API					
+Google Drive API					
+Google Sheets API					
+IAM Service Account Credentials API					
+Identity and Access Management (IAM) API					
+Identity Toolkit API					
+Legacy Cloud Source Repositories API 
+Maps JavaScript API					
+People API					
+Pollen API					
+Recommender API					
+Service Management API					
+Service Usage API					
+Time Zone API					
+Weather API

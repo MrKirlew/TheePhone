@@ -1,0 +1,6 @@
+functions-framework==3.*
+google-cloud-speech==2.*
+google-cloud-texttospeech==2.*
+google-cloud-vision==3.*
+flask==2.*
+werkzeug==2.*
