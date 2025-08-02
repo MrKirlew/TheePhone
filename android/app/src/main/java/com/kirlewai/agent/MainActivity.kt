@@ -30,6 +30,7 @@ import com.kirlewai.agent.databinding.ActivityMainBinding
 import com.kirlewai.agent.network.SecureMultimodalService
 import com.kirlewai.agent.network.GeminiService
 import com.kirlewai.agent.speech.AudioRecorder
+import com.kirlewai.agent.speech.TextToSpeechService
 import kotlinx.coroutines.launch
 import java.io.File
 
@@ -45,6 +46,7 @@ class MainActivity : AppCompatActivity() {
     private var imageFile: File? = null
     private var speechRecognizer: SpeechRecognizer? = null
     private var isListening = false
+    private lateinit var ttsService: TextToSpeechService
 
     // UI Components
     private lateinit var statusTextView: TextView
@@ -87,6 +89,15 @@ class MainActivity : AppCompatActivity() {
 
         // Initialize AudioRecorder
         audioRecorder = AudioRecorder(this)
+        
+        // Initialize TextToSpeech
+        ttsService = TextToSpeechService(this)
+        lifecycleScope.launch {
+            val ttsInitialized = ttsService.initialize()
+            if (!ttsInitialized) {
+                Log.e("MainActivity", "Failed to initialize Text-to-Speech")
+            }
+        }
 
         // Setup ActivityResultLaunchers
         setupSignInLauncher()
@@ -185,7 +196,19 @@ class MainActivity : AppCompatActivity() {
                 val response = GeminiService.generateResponse(userMessage, userContext)
                 
                 conversationText.append("\nAI: $response")
-                statusTextView.text = getString(R.string.ready)
+                
+                // Update status to show if speaking
+                if (ttsService.isSpeechEnabled) {
+                    statusTextView.text = "🔊 Speaking..."
+                    ttsService.speak(response) {
+                        // Called when speech is complete
+                        runOnUiThread {
+                            statusTextView.text = getString(R.string.ready)
+                        }
+                    }
+                } else {
+                    statusTextView.text = getString(R.string.ready)
+                }
                 
                 // Clear text input
                 binding.textInput.text?.clear()
@@ -387,6 +410,19 @@ class MainActivity : AppCompatActivity() {
                 val finalText = conversationText.text.toString().replace("\nAI: 🤔 Thinking...", "\nAI: $response")
                 conversationText.text = finalText
                 
+                // Speak the AI response with status update
+                if (ttsService.isSpeechEnabled) {
+                    statusTextView.text = "🔊 Speaking..."
+                    ttsService.speak(response) {
+                        // Called when speech is complete
+                        runOnUiThread {
+                            statusTextView.text = getString(R.string.ready)
+                        }
+                    }
+                } else {
+                    statusTextView.text = getString(R.string.ready)
+                }
+                
                 // Scroll to bottom to show new response
                 binding.conversationScroll.post {
                     binding.conversationScroll.fullScroll(android.view.View.FOCUS_DOWN)
@@ -446,5 +482,6 @@ class MainActivity : AppCompatActivity() {
     override fun onDestroy() {
         super.onDestroy()
         speechRecognizer?.destroy()
+        ttsService.shutdown()
     }
 }
