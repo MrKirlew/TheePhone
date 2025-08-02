@@ -14,6 +14,7 @@ if (rootProject.file('local.properties').exists()) {
 
 def webClientId = localProperties.getProperty('WEB_CLIENT_ID')
 def geminiApiKey = localProperties.getProperty('GEMINI_API_KEY', 'YOUR_GEMINI_API_KEY_HERE')
+def weatherApiKey = localProperties.getProperty('WEATHER_API_KEY', 'YOUR_WEATHER_API_KEY_HERE')
 
 android {
     namespace 'com.kirlewai.agent'
@@ -35,10 +36,12 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
             buildConfigField 'String', 'WEB_CLIENT_ID', "\"$webClientId\""
             buildConfigField 'String', 'GEMINI_API_KEY', "\"$geminiApiKey\""
+            buildConfigField 'String', 'WEATHER_API_KEY', "\"$weatherApiKey\""
         }
         debug {
             buildConfigField 'String', 'WEB_CLIENT_ID', "\"$webClientId\""
             buildConfigField 'String', 'GEMINI_API_KEY', "\"$geminiApiKey\""
+            buildConfigField 'String', 'WEATHER_API_KEY', "\"$weatherApiKey\""
         }
     }
     compileOptions {
@@ -82,6 +85,9 @@ dependencies {
     
     // Google Sign-In
     implementation 'com.google.android.gms:play-services-auth:21.2.0'
+    
+    // Google Play Services Location
+    implementation 'com.google.android.gms:play-services-location:21.2.0'
     
     // CameraX
     implementation "androidx.camera:camera-camera2:1.3.1"
