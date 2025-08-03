@@ -1,0 +1,70 @@
+API CONFIGURATION FOR KIRLEWPHONE
+
+SERVER_URL=https://us-central1-kirlewai.cloudfunctions.net/processCommand
+
+TIMEOUT_SETTINGS:
+- Connection Timeout: 30 seconds
+- Read Timeout: 30 seconds
+- Write Timeout: 30 seconds
+
+API INTEGRATION STATUS:
+All 47 APIs are integrated in the backend and do not need to be displayed in the UI:
+1. Cloud Run Admin API
+2. Cloud Text-to-Speech API
+3. Vertex AI API
+4. Secret Manager API
+5. Cloud Speech-to-Text API
+6. Artifact Registry API
+7. Cloud Functions API
+8. Gemini for Google Cloud API
+9. Cloud Build API
+10. Cloud Storage API
+11. Analytics Hub API
+12. BigQuery API
+13. BigQuery Connection API
+14. BigQuery Data Policy API
+15. BigQuery Migration API
+16. BigQuery Reservation API
+17. BigQuery Storage API
+18. Cloud Asset API
+19. Cloud Dataplex API
+20. Cloud Datastore API
+21. Cloud Identity API
+22. Cloud Identity-Aware Proxy API
+23. Cloud Logging API
+24. Cloud Monitoring API
+25. Cloud Pub/Sub API
+26. Cloud Resource Manager API
+27. Cloud SQL
+28. Cloud Storage
+29. Cloud Trace API
+30. Cloud Vision API
+31. Contacts API
+32. Container Registry API
+33. Dataform API
+34. Drive Activity API
+35. Firebase Cloud Messaging API
+36. Firebase Installations API
+37. Gemini Cloud Assist API
+38. Generative Language API
+39. Geolocation API
+40. Gmail API
+41. Google Calendar API
+42. Google Chat API
+43. Google Cloud APIs
+44. Google Cloud Storage JSON API
+45. Google Docs API
+46. Google Drive API
+47. Google Sheets API
+48. IAM Service Account Credentials API
+49. Identity and Access Management (IAM) API
+50. Identity Toolkit API
+51. Legacy Cloud Source Repositories API
+52. Maps JavaScript API
+53. People API
+54. Pollen API
+55. Recommender API
+56. Service Management API
+57. Service Usage API
+58. Time Zone API
+59. Weather API

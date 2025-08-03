@@ -42,6 +42,7 @@ class TextToSpeechService(private val context: Context) {
                             onSpeechCompleteListener?.invoke()
                         }
                         
+                        @Deprecated("Deprecated in API level 27")
                         override fun onError(utteranceId: String?) {
                             Log.e(TAG, "Error speaking: $utteranceId")
                         }
@@ -121,5 +122,9 @@ class TextToSpeechService(private val context: Context) {
     fun setLanguage(locale: Locale): Boolean {
         val result = tts?.setLanguage(locale)
         return result != TextToSpeech.LANG_MISSING_DATA && result != TextToSpeech.LANG_NOT_SUPPORTED
+    }
+    
+    fun setOnCompletionListener(listener: () -> Unit) {
+        onSpeechCompleteListener = listener
     }
 }

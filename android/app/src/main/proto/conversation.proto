@@ -1,0 +1,143 @@
+syntax = "proto3";
+
+package com.kirlewai.agent.proto;
+
+option java_package = "com.kirlewai.agent.proto";
+option java_multiple_files = true;
+option java_outer_classname = "ConversationProto";
+
+// gRPC service definition for real-time conversation
+service ConversationalAgent {
+    // Bidirectional streaming for real-time conversation
+    rpc Converse(stream ConverseRequest) returns (stream ConverseResponse);
+}
+
+// Request message for conversation
+message ConverseRequest {
+    oneof request_type {
+        SessionSetup session_setup = 1;
+        AudioChunk audio_chunk = 2;
+        TextInput text_input = 3;
+        InterruptionSignal interruption = 4;
+        ContextUpdate context_update = 5;
+        EndSessionRequest end_session = 6;
+    }
+}
+
+// Response message from conversation
+message ConverseResponse {
+    oneof response_type {
+        SessionResponse session_response = 1;
+        AudioChunk audio_chunk = 2;
+        TextResponse text_response = 3;
+        FunctionCall function_call = 4;
+        ContextUpdate context_update = 5;
+        ErrorResponse error = 6;
+    }
+}
+
+// Session setup for new conversation
+message SessionSetup {
+    string user_id = 1;
+    string auth_token = 2;
+    UserPreferences preferences = 3;
+    AudioConfig audio_config = 4;
+}
+
+// Session response confirmation
+message SessionResponse {
+    bool success = 1;
+    string session_id = 2;
+    string message = 3;
+}
+
+// Audio chunk for streaming
+message AudioChunk {
+    bytes data = 1;
+    string format = 2;
+    int32 sample_rate = 3;
+    int32 channels = 4;
+    int64 timestamp = 5;
+}
+
+// Text input message
+message TextInput {
+    string text = 1;
+    int64 timestamp = 2;
+}
+
+// Text response message
+message TextResponse {
+    string text = 1;
+    int64 timestamp = 2;
+    bool is_final = 3;
+}
+
+// Function call from AI
+message FunctionCall {
+    string function_name = 1;
+    map<string, string> parameters = 2;
+    string call_id = 3;
+}
+
+// Interruption signal
+message InterruptionSignal {
+    int64 timestamp = 1;
+    string reason = 2;
+}
+
+// Context update message
+message ContextUpdate {
+    LocationUpdate location = 1;
+    map<string, string> user_data = 2;
+    int64 timestamp = 3;
+}
+
+// Location update
+message LocationUpdate {
+    double latitude = 1;
+    double longitude = 2;
+    double accuracy = 3;
+    int64 timestamp = 4;
+}
+
+// End session request
+message EndSessionRequest {
+    string session_id = 1;
+    string reason = 2;
+}
+
+// Error response
+message ErrorResponse {
+    int32 code = 1;
+    string message = 2;
+    string details = 3;
+}
+
+// User preferences
+message UserPreferences {
+    string voice_preference = 1;
+    float speech_rate = 2;
+    bool enable_interruptions = 3;
+    bool enable_proactive_suggestions = 4;
+    string language_code = 5;
+    PersonalityType personality_type = 6;
+}
+
+// Audio configuration
+message AudioConfig {
+    int32 sample_rate = 1;
+    int32 channels = 2;
+    string format = 3;
+    int32 buffer_size = 4;
+}
+
+// Personality types
+enum PersonalityType {
+    PERSONALITY_PROFESSIONAL = 0;
+    PERSONALITY_CASUAL = 1;
+    PERSONALITY_ENTHUSIASTIC = 2;
+    PERSONALITY_ANALYTICAL = 3;
+    PERSONALITY_CREATIVE = 4;
+    PERSONALITY_SUPPORTIVE = 5;
+}

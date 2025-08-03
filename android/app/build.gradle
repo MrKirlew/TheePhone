@@ -3,6 +3,7 @@ plugins {
     id 'org.jetbrains.kotlin.android'
     id 'kotlin-parcelize'
     id 'com.google.gms.google-services'
+    id 'com.google.protobuf' version '0.9.4'
 }
 
 def localProperties = new Properties()
@@ -12,9 +13,11 @@ if (rootProject.file('local.properties').exists()) {
     }
 }
 
-def webClientId = localProperties.getProperty('WEB_CLIENT_ID')
+def webClientId = localProperties.getProperty('WEB_CLIENT_ID', 'YOUR_WEB_CLIENT_ID_HERE')
 def geminiApiKey = localProperties.getProperty('GEMINI_API_KEY', 'YOUR_GEMINI_API_KEY_HERE')
 def weatherApiKey = localProperties.getProperty('WEATHER_API_KEY', 'YOUR_WEATHER_API_KEY_HERE')
+def serverHost = localProperties.getProperty('SERVER_HOST', 'localhost')
+def serverPort = localProperties.getProperty('SERVER_PORT', '50051')
 
 android {
     namespace 'com.kirlewai.agent'
@@ -37,11 +40,15 @@ android {
             buildConfigField 'String', 'WEB_CLIENT_ID', "\"$webClientId\""
             buildConfigField 'String', 'GEMINI_API_KEY', "\"$geminiApiKey\""
             buildConfigField 'String', 'WEATHER_API_KEY', "\"$weatherApiKey\""
+            buildConfigField 'String', 'SERVER_HOST', "\"$serverHost\""
+            buildConfigField 'String', 'SERVER_PORT', "\"$serverPort\""
         }
         debug {
             buildConfigField 'String', 'WEB_CLIENT_ID', "\"$webClientId\""
             buildConfigField 'String', 'GEMINI_API_KEY', "\"$geminiApiKey\""
             buildConfigField 'String', 'WEATHER_API_KEY', "\"$weatherApiKey\""
+            buildConfigField 'String', 'SERVER_HOST', "\"$serverHost\""
+            buildConfigField 'String', 'SERVER_PORT', "\"$serverPort\""
         }
     }
     compileOptions {
@@ -82,9 +89,17 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.6.1'
     implementation 'com.google.android.material:material:1.11.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation 'androidx.activity:activity-ktx:1.9.2'
+    implementation 'androidx.fragment:fragment-ktx:1.8.5'
+    implementation 'androidx.recyclerview:recyclerview:1.3.2'
     
-    // Google Sign-In
+    // Google Sign-In (Legacy - being phased out)
     implementation 'com.google.android.gms:play-services-auth:21.2.0'
+    
+    // Modern Credential Manager API
+    implementation 'androidx.credentials:credentials:1.3.0'
+    implementation 'androidx.credentials:credentials-play-services-auth:1.3.0'
+    implementation 'com.google.android.libraries.identity.googleid:googleid:1.1.1'
     
     // Google Play Services Location
     implementation 'com.google.android.gms:play-services-location:21.2.0'
@@ -116,10 +131,56 @@ dependencies {
         exclude group: 'org.json', module: 'json' // Exclude as it's provided by Android
     }
     
-    // Google AI (Gemini) SDK
+    // Google AI (Gemini) SDK - Only for client-side processing if needed
     implementation 'com.google.ai.client.generativeai:generativeai:0.9.0'
+    
+    // gRPC dependencies for real-time communication
+    implementation 'io.grpc:grpc-okhttp:1.60.0'
+    implementation 'io.grpc:grpc-protobuf-lite:1.60.0'
+    implementation 'io.grpc:grpc-stub:1.60.0'
+    implementation 'io.grpc:grpc-kotlin-stub:1.4.1'
+    implementation 'com.google.protobuf:protobuf-kotlin-lite:3.25.1'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3'
+    
+    // Protobuf support
+    implementation 'com.google.protobuf:protobuf-javalite:3.25.1'
     
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+}
+
+// Protobuf configuration
+protobuf {
+    protoc {
+        artifact = 'com.google.protobuf:protoc:3.25.1'
+    }
+    plugins {
+        grpc {
+            artifact = 'io.grpc:protoc-gen-grpc-java:1.60.0'
+        }
+        grpckt {
+            artifact = 'io.grpc:protoc-gen-grpc-kotlin:1.4.1:jdk8@jar'
+        }
+    }
+    generateProtoTasks {
+        all().each { task ->
+            task.plugins {
+                grpc {
+                    option 'lite'
+                }
+                grpckt {
+                    option 'lite'
+                }
+            }
+            task.builtins {
+                java {
+                    option 'lite'
+                }
+                kotlin {
+                    option 'lite'
+                }
+            }
+        }
+    }
 }

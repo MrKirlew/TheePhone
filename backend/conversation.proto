@@ -1,0 +1,234 @@
+// conversation.proto - gRPC Protocol Definition for Real-Time AI Conversation
+// Based on the architectural specifications in Realtime_Humanlike_AIAgent.txt
+
+syntax = "proto3";
+
+package ai_agent;
+
+option java_package = "com.kirlewai.agent.grpc";
+option java_outer_classname = "ConversationProto";
+
+// Main service for real-time conversational AI
+service ConversationalAgent {
+  // Bidirectional streaming RPC for real-time conversation
+  // The client streams audio chunks and receives audio responses
+  rpc Converse(stream ConverseRequest) returns (stream ConverseResponse);
+  
+  // Unary RPC for session management
+  rpc StartSession(SessionRequest) returns (SessionResponse);
+  rpc EndSession(EndSessionRequest) returns (EndSessionResponse);
+  
+  // Text-based interaction for debugging and testing
+  rpc ProcessTextCommand(TextCommandRequest) returns (TextCommandResponse);
+}
+
+// Request message for the bidirectional stream
+message ConverseRequest {
+  oneof request_type {
+    // Initial setup message with authentication and configuration
+    SessionSetup session_setup = 1;
+    
+    // Audio chunk from the user
+    AudioChunk audio_chunk = 2;
+    
+    // Text input for hybrid interactions
+    TextInput text_input = 3;
+    
+    // User interruption signal
+    InterruptionSignal interruption = 4;
+    
+    // Context update (e.g., location change, new calendar events)
+    ContextUpdate context_update = 5;
+  }
+}
+
+// Response message for the bidirectional stream
+message ConverseResponse {
+  oneof response_type {
+    // Audio response from the AI
+    AudioChunk audio_chunk = 1;
+    
+    // Transcription of user input (for debugging/UI display)
+    TranscriptionResult transcription = 2;
+    
+    // Function call being executed (for transparency)
+    FunctionCallStatus function_status = 3;
+    
+    // Session status updates
+    SessionStatus session_status = 4;
+    
+    // Error messages
+    ErrorMessage error = 5;
+  }
+}
+
+// Session setup and authentication
+message SessionSetup {
+  string user_id = 1;
+  string auth_token = 2;
+  UserPreferences preferences = 3;
+  repeated string enabled_functions = 4;
+  AudioConfig audio_config = 5;
+}
+
+message UserPreferences {
+  string voice_preference = 1;  // "Aoede", "Charon", etc.
+  float speech_rate = 2;
+  bool enable_interruptions = 3;
+  bool enable_proactive_suggestions = 4;
+  string language_code = 5;
+}
+
+message AudioConfig {
+  int32 sample_rate = 1;
+  int32 channels = 2;
+  string encoding = 3;  // "PCM", "OPUS", etc.
+  int32 chunk_size = 4;
+}
+
+// Audio data
+message AudioChunk {
+  bytes data = 1;
+  int64 timestamp_ms = 2;
+  bool is_final = 3;  // Indicates end of user speech
+}
+
+// Text input for hybrid interactions
+message TextInput {
+  string text = 1;
+  int64 timestamp_ms = 2;
+  bool replace_audio = 3;  // Whether this replaces ongoing audio
+}
+
+// User interruption signal
+message InterruptionSignal {
+  int64 timestamp_ms = 1;
+  string reason = 2;  // "user_spoke", "manual_stop", etc.
+}
+
+// Context updates
+message ContextUpdate {
+  oneof update_type {
+    LocationUpdate location = 1;
+    CalendarUpdate calendar = 2;
+    EnvironmentalUpdate environment = 3;
+  }
+}
+
+message LocationUpdate {
+  double latitude = 1;
+  double longitude = 2;
+  string address = 3;
+}
+
+message CalendarUpdate {
+  repeated CalendarEvent new_events = 1;
+  repeated string cancelled_event_ids = 2;
+}
+
+message CalendarEvent {
+  string id = 1;
+  string title = 2;
+  int64 start_time_ms = 3;
+  int64 end_time_ms = 4;
+  string location = 5;
+}
+
+message EnvironmentalUpdate {
+  string weather_condition = 1;
+  float temperature = 2;
+  string time_of_day = 3;
+}
+
+// Transcription results
+message TranscriptionResult {
+  string text = 1;
+  float confidence = 2;
+  bool is_final = 3;
+  int64 timestamp_ms = 4;
+}
+
+// Function call status
+message FunctionCallStatus {
+  string function_name = 1;
+  FunctionCallState state = 2;
+  string description = 3;  // Human-readable description
+  map<string, string> parameters = 4;
+  string result_summary = 5;
+}
+
+enum FunctionCallState {
+  FUNCTION_STARTING = 0;
+  FUNCTION_IN_PROGRESS = 1;
+  FUNCTION_COMPLETED = 2;
+  FUNCTION_FAILED = 3;
+}
+
+// Session management
+message SessionRequest {
+  string user_id = 1;
+  string auth_token = 2;
+  UserPreferences preferences = 3;
+}
+
+message SessionResponse {
+  string session_id = 1;
+  SessionStatus status = 2;
+  repeated string available_functions = 3;
+}
+
+message SessionStatus {
+  string session_id = 1;
+  SessionState state = 2;
+  int64 last_activity_ms = 3;
+  string status_message = 4;
+}
+
+enum SessionState {
+  SESSION_STARTING = 0;
+  SESSION_ACTIVE = 1;
+  SESSION_PAUSED = 2;
+  SESSION_ENDING = 3;
+  SESSION_ERROR = 4;
+}
+
+message EndSessionRequest {
+  string session_id = 1;
+}
+
+message EndSessionResponse {
+  bool success = 1;
+  string message = 2;
+}
+
+// Text command processing (for testing/debugging)
+message TextCommandRequest {
+  string session_id = 1;
+  string command = 2;
+  bool include_function_calls = 3;
+}
+
+message TextCommandResponse {
+  string response_text = 1;
+  repeated FunctionCallStatus function_calls = 2;
+  string audio_url = 3;  // Optional: URL to generated audio
+}
+
+// Error handling
+message ErrorMessage {
+  ErrorCode code = 1;
+  string message = 2;
+  string details = 3;
+  int64 timestamp_ms = 4;
+}
+
+enum ErrorCode {
+  UNKNOWN_ERROR = 0;
+  AUTHENTICATION_FAILED = 1;
+  AUDIO_PROCESSING_ERROR = 2;
+  FUNCTION_CALL_ERROR = 3;
+  NETWORK_ERROR = 4;
+  RATE_LIMIT_EXCEEDED = 5;
+  SESSION_EXPIRED = 6;
+  INSUFFICIENT_PERMISSIONS = 7;
+}

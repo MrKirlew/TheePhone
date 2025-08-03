@@ -7,4 +7,20 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    
+    <!-- Dark theme colors -->
+    <color name="background_dark">#FF1A1A1A</color>
+    <color name="surface_dark">#FF2D2D2D</color>
+    <color name="button_dark">#FF3D3D3D</color>
+    <color name="button_accent">#FF4A4A4A</color>
+    <color name="text_primary">#FFFFFFFF</color>
+    <color name="text_secondary">#FFB0B0B0</color>
+    <color name="text_hint">#FF808080</color>
+    <color name="nav_bar_background">#FF0D0D0D</color>
+    <color name="nav_icon_tint">#FF808080</color>
+    <color name="nav_icon_selected">#FFFFFFFF</color>
+    
+    <!-- Chat message colors -->
+    <color name="user_message_color">#FF007AFF</color>
+    <color name="agent_message_color">#FFE5E5EA</color>
 </resources>

@@ -21,7 +21,8 @@ class AudioRecorder(private val context: Context) {
         mediaRecorder = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
             MediaRecorder(context)
         } else {
-            MediaRecorder()
+            @Suppress("DEPRECATION")
+            MediaRecorder() // Using legacy constructor for older API levels
         }
 
         mediaRecorder?.apply {
