@@ -23,11 +23,11 @@ jobs:
       with:
         name: multimodal-agent-orchestrator
         runtime: python311
-        project_id: ${{ secrets.GCP_PROJECT_ID }}
+        project_id: '${{ secrets.GCP_PROJECT_ID }}'
         source_dir: ./backend
         entry_point: multimodal_agent_orchestrator
         region: us-central1
         env_vars: |
           SECRET_NAME=oauth-client-secret
         # Service account for the function
-        service_account_email: ${{ secrets.GCP_PROJECT_ID }}@appspot.gserviceaccount.com
+        service_account_email: '${{ secrets.GCP_PROJECT_ID }}@appspot.gserviceaccount.com'
