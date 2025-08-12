@@ -1,0 +1,22 @@
+name: adk_mobile_client
+description: ADK conversational client
+publish_to: "none"
+
+environment:
+  sdk: ">=3.0.0 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  http: ^1.2.0
+  camera: ^0.10.5+5
+  image_picker: ^1.0.7
+  speech_to_text: ^6.6.0
+  path_provider: ^2.1.2
+  provider: ^6.1.2
+  firebase_core: ^2.24.0
+  firebase_messaging: ^14.7.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter

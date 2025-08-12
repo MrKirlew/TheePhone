@@ -1,0 +1,465 @@
+﻿Google Calendar (1-65)
+1. Schedule a new event: "Schedule a meeting with [Name] tomorrow at 3 PM to discuss [Topic]."
+2. Check my schedule: "What's on my calendar for today?"
+3. Find next availability: "When am I free next week for a 30-minute call?"
+4. Modify an event: "Reschedule my 3 PM meeting to 4 PM."
+5. Cancel an event: "Cancel my dentist appointment on Wednesday."
+6. Add someone to an event: "Add [Email Address] to the project kickoff meeting."
+7. Set a reminder: "Remind me to call Mom at 7 PM tonight."
+8. Show me a specific day: "What does my schedule look like this Friday?"
+9. Create a recurring event: "Set up a weekly team meeting every Monday at 10 AM."
+10. Find an event: "Where is the marketing summit I have next month?"
+11. Set event location: "Set the location for my lunch with Alex to 'The Corner Cafe'."
+12. Show birthdays: "Are there any birthdays on my calendar this month?"
+13. Block out time: "Block out 9 AM to 11 AM tomorrow for focus time."
+14. Check a colleague's availability: "See if [Colleague's Name] is free on Thursday afternoon."
+15. Create an all-day event: "Set an all-day event for 'Public Holiday' on July 4th."
+16. Find a free time slot for a group: "Find a time for me, [Name 1], and [Name 2] to meet next week."
+17. Create an event from an email: "Create an event from the last email from [Sender]."
+18. Set a goal: "Set a goal to exercise 5 times a week."
+19. Show my goals: "What goals do I have scheduled for this week?"
+20. Add video conferencing: "Add a Google Meet link to my next event."
+21. Set event visibility: "Make my 2 PM appointment private."
+22. Show events with a specific person: "Show me all my upcoming events with [Name]."
+23. Check next event: "What is the next event on my calendar?"
+24. Email event guests: "Email the guests of the 'Project Update' meeting and say we're running 10 minutes late."
+25. List my calendars: "Show me all the calendars I'm subscribed to."
+26. Change event color: "Change the color of my 'Team Lunch' event to green."
+27. Find events by location: "Find all my meetings at the downtown office."
+28. Add an attachment: "Add the 'Agenda' document from my Drive to the weekly sync."
+29. Duplicate an event: "Duplicate my 10 AM meeting for next Friday."
+30. Set working hours: "Set my working hours to 9 AM to 5 PM, Monday through Friday."
+31. Share my calendar: "Share my main calendar with [Email Address] and let them see all event details."
+32. Create a new calendar: "Create a new calendar named 'Personal Projects'."
+33. Delete a calendar: "Delete the 'Old Projects' calendar."
+34. Check weather for an event: "What's the weather forecast for my outdoor event on Saturday?"
+35. Add travel time: "Add 30 minutes of travel time before my appointment with Dr. Smith."
+36. Show tentative events: "Show me all the events I haven't responded to."
+37. Accept an invitation: "Accept the invitation for the 'Quarterly Review'."
+38. Propose a new time: "Propose a new time for the meeting with [Name]."
+39. Set Out of Office: "Turn on my 'Out of Office' auto-reply until next Monday."
+40. How many hours of meetings do I have?: "How many hours am I in meetings this week?"
+41. Clear my schedule: "Clear my schedule for Friday afternoon."
+42. Change default event duration: "Change the default meeting length to 45 minutes."
+43. Show cancelled events: "Show me all cancelled events for this week."
+44. Find event organizer: "Who is the organizer of the 'All-Hands Meeting'?"
+45. Show time insights: "Show me my Time Insights for this month."
+46. Export my calendar: "Export my 'Work' calendar as an iCal file."
+47. Import a calendar: "Import a calendar from this URL: [URL]."
+48. Set event status: "Set my status to 'Busy' for the next 4 hours."
+49. Book a meeting room: "Book the 'Apollo' conference room for my 3 PM meeting."
+50. Find my recurring events: "Show me all my recurring events."
+51. Stop a recurring series: "Cancel the recurring 'Monday Check-in' event series."
+52. Change event notifications: "Change the notification for my 1 PM meeting to 30 minutes before."
+53. Add a timezone: "Add a secondary timezone for Tokyo to the 'International Call' event."
+54. Check attendees' status: "Who has accepted the invitation to the marketing summit?"
+55. Show my availability: "Show my availability for the rest of the day."
+56. Add a work schedule: "Add my shift schedule for next week to the calendar."
+57. Subscribe to a public calendar: "Subscribe to the US Holidays calendar."
+58. Find first event: "When was the first event I had with [Name]?"
+59. Get directions to an event: "Get me directions to my next event."
+60. Change calendar owner: "Make [Name] the owner of the 'Team Events' calendar."
+61. Print my schedule: "Print my agenda for tomorrow."
+62. Hide a calendar: "Hide the 'Team Birthdays' calendar from my view."
+63. Change my response: "Change my response to the 'Workshop' event to 'Maybe'."
+64. Find available rooms: "Find an available conference room for 10 people tomorrow at 2 PM."
+65. Add a note to an event: "Add a note to my lunch meeting saying 'Discuss Q4 budget'."
+Gmail (66-130)
+66. Compose a new email: "Send an email to [Name] with the subject [Subject] and say [Message]."
+67. Check for new emails: "Do I have any new emails from [Name]?"
+68. Summarize my inbox: "Give me a summary of my unread emails."
+69. Find an email: "Find the email from [Sender] about the [Topic]."
+70. Reply to an email: "Reply to the last email from [Name] and say 'Thanks, I'll take a look'."
+71. Forward an email: "Forward the email with the flight confirmation to [Email Address]."
+72. Archive an email: "Archive the newsletter from this morning."
+73. Delete an email: "Delete all promotional emails from today."
+74. Mark as unread/read: "Mark the last email as unread."
+75. Search for attachments: "Find emails with attachments from last week."
+76. Star an email: "Star the email from my boss."
+77. Create a label/folder: "Create a new label called 'Project Phoenix'."
+78. Move an email to a label: "Move the email from HR to the 'Important Docs' label."
+79. Search by date: "Show me all emails I sent last Monday."
+80. Set a reminder to follow up: "Remind me to follow up on the email from [Name] in 3 days."
+81. Search for large emails: "Find all emails larger than 20MB."
+82. Create a filter: "Create a filter to automatically label all emails from [Company] as 'Work'."
+83. Unsubscribe: "Unsubscribe me from the [Newsletter Name] mailing list."
+84. Snooze an email: "Snooze the email from [Sender] until this evening."
+85. Show snoozed emails: "Show me all my snoozed emails."
+86. Enable vacation responder: "Turn on my vacation auto-reply."
+87. Create an email template: "Create a new email template called 'New Client Welcome'."
+88. Send using a template: "Send an email to [Client Name] using the 'New Client Welcome' template."
+89. Empty the trash: "Empty my trash folder."
+90. Empty spam: "Delete all emails in my spam folder."
+91. Search by subject: "Find all emails with 'Invoice' in the subject line."
+92. Find unreplied emails: "Show me emails I received yesterday that I haven't replied to."
+93. Translate an email: "Translate the last email I received into Spanish."
+94. Recall an email: "Undo send for the last email I sent."
+95. Add sender to contacts: "Add the sender of the last email to my contacts."
+96. Show primary inbox: "Take me to my primary inbox."
+97. Mute a conversation: "Mute the conversation about the office party."
+98. Report as phishing: "Report the last email as a phishing attempt."
+99. Block sender: "Block all future emails from [Email Address]."
+100. Find emails with Drive links: "Find all emails that contain a Google Drive link."
+101. Create a signature: "Create a new email signature."
+102. Turn off conversation view: "Switch my inbox to classic view."
+103. Show scheduled emails: "Show me all my scheduled emails."
+104. Cancel a scheduled email: "Cancel the email scheduled to go to [Name] tomorrow."
+105. Schedule a draft: "Schedule the draft I wrote to [Name] to be sent on Friday at 9 AM."
+106. Mark as important: "Mark all emails from my manager as important."
+107. Create a rule: "Create a rule to automatically archive all newsletters."
+108. Show storage: "How much is my Gmail storage usage?"
+109. Log out of other sessions: "Sign me out of all other active Gmail sessions."
+110. Add email to Tasks: "Add the last email from [Name] to my Google Tasks."
+111. Find emails sent to someone: "Show me all the emails I've ever sent to [Name]."
+112. Find unlabeled emails: "Find all emails that don't have a label."
+113. Change theme: "Change my Gmail theme to 'dark'."
+114. Turn on smart reply: "Enable smart reply suggestions."
+115. Request a read receipt: "Request a read receipt for the email I'm composing."
+116. Show drafts: "Show me all my saved drafts."
+117. Delete all drafts: "Delete all of my email drafts."
+118. Search by label color: "Find all emails with a red label."
+119. Turn on confidential mode: "Turn on confidential mode for this email and set it to expire in one week."
+120. Find conversation by ID: "Find the email thread with ID [ID Number]."
+121. Change swipe actions: "Change my mobile swipe actions to archive and delete."
+122. Turn off nudges: "Disable the feature that reminds me to reply to old emails."
+123. Show all my labels: "List all the labels I've created."
+124. Forward all new mail: "Set up forwarding to send a copy of all new mail to [Email Address]."
+125. Check spelling in draft: "Check the spelling in my current draft."
+126. Add a contact from email: "Create a new contact for [Name] from their signature in the last email."
+127. Search for emails with attachments of a certain type: "Find all emails with a PDF attachment."
+128. Mark entire inbox as read: "Mark all emails in my inbox as read."
+129. Find emails I was CC'd on: "Show me all emails where I was copied."
+130. Change my profile picture: "Change my Google account profile picture."
+Google Docs (131-190)
+131. Create a new document: "Create a new Google Doc named 'Meeting Notes'."
+132. Share a document: "Share the 'Meeting Notes' doc with [Email Address] and give them edit access."
+133. Find a document: "Find my document titled 'Q3 Report'."
+134. Open a document: "Open the 'Project Proposal' document."
+135. Summarize a document: "Summarize the key points in the 'Market Research' doc."
+136. Add a comment: "In the 'Draft Blog Post' doc, add a comment on the first paragraph that says 'Let's rephrase this'."
+137. Check word count: "What's the word count of the 'Annual Review' document?"
+138. Export as PDF: "Download the 'Final Presentation' doc as a PDF."
+139. Make a copy: "Make a copy of the 'Template' document."
+140. Find recent documents: "Show me the documents I worked on yesterday."
+141. Change font: "In the current document, change the font to Arial."
+142. Make text bold: "Make the last sentence bold."
+143. Insert table of contents: "Add a table of contents to this document."
+144. Check grammar: "Run a spelling and grammar check."
+145. View version history: "Show me the version history for this doc."
+146. Restore a version: "Restore this document to the version from yesterday at 5 PM."
+147. Insert an image: "Insert an image from my computer into this doc."
+148. Change page orientation: "Change the page orientation to landscape."
+149. Add page numbers: "Add page numbers to the bottom right of every page."
+150. Create a numbered list: "Start a numbered list."
+151. Translate document: "Translate this document to French."
+152. Publish to the web: "Publish this document to the web."
+153. Change sharing permissions: "Change [Name]'s access to 'viewer' on this document."
+154. Insert a link: "Make the words 'Google's website' a link to https://www.google.com/search?q=google.com."
+155. Find and replace: "In this document, find all instances of 'old name' and replace with 'new name'."
+156. Change page color: "Change the page color to light blue."
+157. Add a header: "Add a header to this document with the text 'Confidential Draft'."
+158. Insert a drawing: "Insert a new drawing."
+159. Resolve comments: "Resolve all comments in this document."
+160. Accept suggestions: "Accept all editing suggestions."
+161. View outline: "Show me the document outline."
+162. Change margins: "Set the margins to 'Narrow'."
+163. Email as attachment: "Email this document as a PDF to [Name]."
+164. Move document: "Move this document to the 'Archive' folder in my Drive."
+165. Star this document: "Star this document."
+166. Make available offline: "Make this document available for offline editing."
+167. Insert horizontal line: "Insert a horizontal line here."
+168. Change line spacing: "Change the line spacing to double."
+169. Clear formatting: "Clear all formatting from the selected text."
+170. Insert special character: "Insert the copyright symbol."
+171. Start voice typing: "Start voice typing."
+172. Compare documents: "Compare this document with the 'Q2 Report'."
+173. Create from template: "Create a new document from the 'Project Proposal' template."
+174. Find comments by person: "Find all comments left by [Name] in this doc."
+175. Change document title: "Rename this document to 'Final Version'."
+176. Print document: "Print this document."
+177. Insert a footnote: "Add a footnote to this sentence."
+178. Add a watermark: "Add a 'DRAFT' watermark to this document."
+179. Check accessibility: "Run an accessibility check on this document."
+180. Insert a chart: "Insert the bar chart from the 'Sales Data' Sheet."
+181. See viewers: "Who has viewed this document recently?"
+182. Set sharing expiration: "Set the sharing link for this document to expire in 7 days."
+183. Disable downloads for viewers: "Prevent viewers from downloading, printing, or copying this file."
+184. Download as Word doc: "Download this file as a Microsoft Word document."
+185. Insert a bookmark: "Insert a bookmark at this location and name it 'Introduction'."
+186. Go to a page: "Go to page 5 of this document."
+187. Change text color: "Change the color of the selected text to red."
+188. Highlight text: "Highlight the selected paragraph in yellow."
+189. Add an equation: "Insert a new equation."
+190. Change document language: "Set the language of this document to English (UK)."
+Google Drive (191-250)
+191. Upload a file: "Upload this file to my 'Receipts' folder in Google Drive."
+192. Find a file: "Search for a file named 'invoice.pdf' in my Drive."
+193. Share a folder: "Share my 'Vacation Photos' folder with my family."
+194. Create a new folder: "Create a new folder in Drive called '2025 Projects'."
+195. Move a file: "Move the 'Q3 Report' into the 'Archive' folder."
+196. Check storage space: "How much space am I using in Google Drive?"
+197. Show recent activity: "Show me the recent activity in my Drive."
+198. Rename a file: "Rename 'draft_v1.docx' to 'final_report.docx'."
+199. Star a file: "Star the 'Company Handbook' file."
+200. Access offline files: "Make the 'Travel Itinerary' folder available offline."
+201. Show starred files: "Show me all my starred files and folders."
+202. Show files shared with me: "What are the most recent files shared with me?"
+203. Create a new Sheet: "Create a new Google Sheet named 'Budget'."
+204. Create a new Slides: "Create a new Google Slides presentation named 'Kickoff'."
+205. Empty the trash: "Empty my Drive trash."
+206. Restore from trash: "Restore the 'Old Proposal' file from the trash."
+207. Find all PDFs: "Find all PDF files in my Drive."
+208. Find my files: "Find all files owned by me."
+209. Find files from others: "Find all files in my Drive owned by [Name]."
+210. Change folder color: "Change the color of the 'Marketing' folder to blue."
+211. Add a shortcut: "Add a shortcut to the 'Shared Assets' folder in my main drive."
+212. View file activity: "Show me the activity history for the 'Q3 Report'."
+213. Manage versions: "Show me all the versions of the 'Design Mockup' file."
+214. Upload new version: "Upload a new version of the 'Team Roster' spreadsheet."
+215. Download a folder: "Download the entire 'Conference Photos' folder as a zip file."
+216. Switch to list view: "Show my files in a list."
+217. Switch to grid view: "Show my files in a grid."
+218. Sort by name: "Sort my current folder by file name."
+219. Sort by last modified: "Sort my files by the last modified date."
+220. Find recent files: "Find all files I've modified in the last 7 days."
+221. Create a shared drive: "Create a new shared drive called 'Sales Team'."
+222. Add members to shared drive: "Add [Name] to the 'Sales Team' shared drive."
+223. Find large files: "Find all files in my drive larger than 1 GB."
+224. Get a shareable link: "Generate a shareable link for the 'Annual Report'."
+225. Disable a link: "Turn off link sharing for the 'Draft' folder."
+226. Transfer ownership: "Transfer ownership of the 'Client Contracts' folder to [Name]."
+227. Search text in images: "Search for the word 'invoice' inside images and PDFs."
+228. Show approvals: "Show me files that are awaiting my approval."
+229. Approve a request: "Approve the access request for the 'Marketing Plan'."
+230. Add to workspace: "Add the 'Current Projects' folder to my priority workspace."
+231. Scan a document: "Use my phone to scan a document and save it to the 'Scans' folder."
+232. Show backups: "Show me my computer backups."
+233. Create a new Form: "Create a new Google Form named 'Team Survey'."
+234. Show folder path: "What is the folder path for the 'Budget' spreadsheet?"
+235. Add file description: "Add a description to the 'Company Logo' file."
+236. Find unorganized files: "Find all files that are not in any folder."
+237. Manage notifications: "Change my Drive notification settings."
+238. Who has access?: "Who has access to the 'Financials' folder?"
+239. Remove access: "Remove [Name]'s access to the 'Project Alpha' document."
+240. Show storage by type: "Show me my Drive storage usage broken down by file type."
+241. Preview a file: "Show me a preview of the 'Presentation' file."
+242. Open with another app: "Open the 'Design' file with [Connected App Name]."
+243. Find files by type: "Find all spreadsheets in my Drive."
+244. Make a copy of a folder: "Is it possible to make a copy of a folder?"
+245. Search by owner: "Search for all files owned by [email@address.com]."
+246. Find public files: "Show me all files that are publicly shared."
+247. See storage quota: "What is my total Google Drive storage quota?"
+248. Search within a folder: "Search for 'budget' within the '2024 Projects' folder."
+249. Get a link to a folder: "Get me the link for the 'Media Assets' folder."
+250. Manage offline files: "Show me all the files I've made available offline."
+Google Contacts (251-310)
+251. Add a new contact: "Add a new contact named [Name] with the phone number [Number] and email [Email]."
+252. Find a contact: "What is [Name]'s phone number?"
+253. Edit a contact: "Update [Name]'s address to [New Address]."
+254. Delete a contact: "Delete the contact for [Name]."
+255. Add to a group: "Add [Name] to my 'Family' group."
+256. Show all contacts in a group: "Show me all my contacts in the 'Work' group."
+257. Find contact by company: "Find all my contacts who work at [Company Name]."
+258. Add a note to a contact: "Add a note to [Name]'s contact that says 'Met at the conference'."
+259. Find duplicate contacts: "Are there any duplicate contacts I can merge?"
+260. Export contacts: "Export my 'Clients' group as a CSV file."
+261. Merge duplicates: "Merge and fix all duplicate contacts."
+262. Import contacts: "Import contacts from this CSV file."
+263. Create a contact label: "Create a new contact label called 'Networking'."
+264. Rename a label: "Rename the 'Family' label to 'Relatives'."
+265. Delete a label: "Delete the 'Old Colleagues' label."
+266. Find contacts without a number: "Find all my contacts that are missing a phone number."
+267. Find contacts without an email: "Find all contacts that don't have an email address."
+268. Show frequent contacts: "Show me my frequently contacted people."
+269. Show recent contacts: "Show me the contacts I've added this month."
+270. Add a birthday: "Add [Name]'s birthday as October 25th."
+271. Add a profile picture: "Add this photo as the profile picture for [Name]."
+272. Find by job title: "Find all contacts with the job title 'Manager'."
+273. Share a contact: "Send [Name]'s contact information to [Other Name]."
+274. Print contacts: "Print my 'Work' contacts list."
+275. Undo last change: "Undo the last change I made in Contacts."
+276. Restore contacts: "Restore my contacts list to how it was yesterday."
+277. Find contacts by location: "Find all my contacts who live in [City]."
+278. Show 'Other contacts': "Show me my 'Other contacts' folder."
+279. Add a relationship: "Set [Name 1] as the spouse of [Name 2]."
+280. Star a contact: "Star [Name]'s contact."
+281. Show starred contacts: "Show me all my starred contacts."
+282. Call a contact: "Call [Name] on their mobile."
+283. Navigate to an address: "Get directions to [Name]'s work address."
+284. How many contacts do I have?: "What is my total number of contacts?"
+285. Find old contacts: "Find contacts I haven't contacted in over a year."
+286. Add a custom field: "Add a custom field called 'Customer ID' to [Name]'s contact."
+287. Find contacts with a website: "Show me all contacts that have a website listed."
+288. Find by nickname: "Find the contact with the nickname 'Rocky'."
+289. Add a nickname: "Add the nickname 'Mo' to [Name]'s contact."
+290. Delegate access: "Delegate access to my contacts to my assistant."
+291. Find by date added: "Find all contacts I added in May."
+292. Add phonetic spelling: "Add a phonetic spelling for [Name]'s name."
+293. Find by domain: "Find all contacts with an email address from '@company.com'."
+294. Create a mailing list: "Create a mailing list from my 'Newsletter' label."
+295. Block a contact: "Block [Name]'s number."
+296. Show blocked numbers: "Show me my list of blocked contacts."
+297. Unblock a contact: "Unblock [Name]."
+298. Find contacts with home address: "Show me all contacts that have a home address saved."
+299. Add a company: "Add [Company Name] as the company for [Name]."
+300. Find contacts without a company: "Show me all contacts that don't have a company listed."
+301. Show contact details: "Show me all the details for [Name]."
+302. Email a contact group: "Send an email to my 'Project Team' group."
+303. Find contacts in a specific ZIP code: "Find all contacts in the 90210 ZIP code."
+304. Remove from a group: "Remove [Name] from the 'Volunteers' group."
+305. Add a work address: "Add a work address for [Name]."
+306. Find contacts without a note: "Show me contacts that have no notes."
+307. Add an anniversary: "Add an anniversary date to [Name]'s contact."
+308. Find contacts by label: "Show me all contacts with the 'VIP' label."
+309. Show contact groups: "List all of my contact groups."
+310. Clean up suggestions: "Show me suggestions for cleaning up my contacts."
+Google Messages (311-370)
+311. Send a message: "Send a text to [Name] saying 'I'm running 5 minutes late'."
+312. Read my last message: "Read the last message I received."
+313. Reply to a message: "Reply to [Name] and say 'Sounds good!'"
+314. Show unread messages: "Do I have any unread text messages?"
+315. Find a message: "Search for a message from [Name] about dinner."
+316. Mute a conversation: "Mute the group chat for an hour."
+317. Archive a conversation: "Archive my conversation with [Name]."
+318. Mark all messages as read: "Mark all my texts as read."
+319. Send a picture: "Send the latest picture I took to [Name]."
+320. Start a group chat: "Start a group chat with [Name 1] and [Name 2]."
+321. Pin a conversation: "Pin my conversation with [Name] to the top."
+322. Unpin a conversation: "Unpin the group chat."
+323. Star a message: "Star the message with the address in it."
+324. Show starred messages: "Show me all my starred messages."
+325. Turn on chat features: "Enable RCS chat features."
+326. Send my location: "Send my current location to [Name]."
+327. Schedule a message: "Schedule a text to [Name] for tomorrow at 8 AM saying 'Good morning!'"
+328. Show scheduled messages: "Show me my scheduled messages."
+329. Search for links: "Find the message with the link to the article."
+330. Delete a conversation: "Delete my entire conversation with [Spam Number]."
+331. Block and report spam: "Block this number and report it as spam."
+332. Show blocked numbers: "Show me my blocked numbers in Messages."
+333. Change notification sound: "Change the notification sound for my conversation with [Name]."
+334. Enable bubbles: "Turn on bubble notifications for Messages."
+335. React to a message: "React to the last message with a heart."
+336. Forward a message: "Forward the last message from [Name 1] to [Name 2]."
+337. Copy message text: "Copy the text of the last message."
+338. See conversation details: "Show me the details for this conversation."
+339. Turn off read receipts: "Turn off my read receipts."
+340. Turn off typing indicators: "Stop showing when I'm typing."
+341. Send a GIF: "Send a 'happy dance' GIF to the group chat."
+342. Start a video call: "Start a video call with [Name]."
+343. Mark as unread: "Mark my conversation with [Name] as unread."
+344. Search by date: "Find messages from last Tuesday."
+345. Find photos in a chat: "Show me all the photos in my chat with [Name]."
+346. Delete a specific message: "Delete the message I just sent."
+347. Name a group chat: "Name this group chat 'Weekend Plans'."
+348. Leave a group chat: "Leave the 'Apartment' group chat."
+349. See who read a message: "See who has read my last message in the group chat."
+350. Send a voice message: "Send a voice message to [Name]."
+351. Pair with web: "Help me pair Messages for web."
+352. Sign out of web: "Sign me out of Messages on all computers."
+353. Set reminders from messages: "Remind me about this message tomorrow."
+354. Create a calendar event from a message: "Create a calendar event from this message about dinner."
+355. Enable spam protection: "Make sure spam protection is enabled."
+356. Send high-resolution photos: "Change settings to always send photos in high resolution."
+357. Nudge me to reply: "Turn on nudges for messages I haven't replied to."
+358. Show archived conversations: "Show me my archived conversations."
+359. Unarchive a conversation: "Unarchive my conversation with [Name]."
+360. Send a contact card: "Send [Name 1]'s contact card to [Name 2]."
+361. Change font size: "Increase the font size in Messages."
+362. See message delivery status: "Did my last message to [Name] get delivered?"
+363. Send a message with effects: "Send 'Happy Birthday' with a screen effect."
+364. Find videos in a chat: "Show me all videos from my chat with my family."
+365. Clear search history: "Clear my search history in Messages."
+366. Turn on auto-download for MMS: "Enable auto-download for multimedia messages."
+367. Add someone to a group: "Add [Name] to this group chat."
+368. View group members: "Who is in this group chat?"
+369. Mute a contact: "Mute notifications from [Name]."
+370. Verify phone number: "Verify my phone number for chat features."
+Time-Related Commands (371-458)
+371. What time is it?
+372. What is the date today?
+373. What time is it in [City/Country]?
+374. How many days until [Date/Holiday]?
+375. What day of the week was [Date]?
+376. Convert [Time] [Timezone] to [Another Timezone].
+377. When is sunrise/sunset today?
+378. Set an alarm for [Time].
+379. What will the date be in [X] days?
+380. How long has it been since [Date]?
+381. Remind me in [X minutes/hours] to [Task].
+382. What is the current week number?
+383. When does spring/summer/fall/winter start?
+384. Is it a leap year?
+385. Calculate the time difference between [City 1] and [City 2].
+386. What was the time [X hours] ago?
+387. What will the time be in [X hours]?
+388. Cancel my [Time] alarm.
+389. Snooze my alarm.
+390. How many hours are left in the day?
+391. What is the time in 24-hour format?
+392. Tell me the time every hour.
+393. How many seconds are in a day?
+394. What is the fiscal quarter?
+395. Start a countdown to [Event Name] on [Date].
+396. What is Daylight Saving Time?
+397. When do the clocks go forward/back?
+398. What is my time zone?
+399. How many workdays are there in this month?
+400. What was the date [X] weeks ago?
+401. Set a recurring alarm for weekdays at 7 AM.
+402. What is UTC time right now?
+403. How many minutes until my next meeting?
+404. Log that I started [Activity] right now.
+405. Log that I finished [Activity] right now.
+406. How long did I spend on [Activity]?
+407. What's the time signature of a waltz? (Abstract time)
+408. How many milliseconds in a minute?
+409. What is a fortnight?
+410. Show me a world clock.
+411. When is the next full moon?
+412. What is my uptime? (For devices)
+413. How much time have I spent on my phone today?
+414. How many days are in this month?
+415. What is the date of the third Tuesday of this month?
+416. When is the next public holiday in [Country]?
+417. What season is it in the Southern Hemisphere?
+418. How many weeks are in a year?
+419. What is the time in military time?
+420. How many days have passed this year?
+421. How many days are left in this year?
+422. What day of the week was my birthday on this year?
+423. Record a lap.
+424. Show me my lap times.
+425. Calculate the duration between [Time 1, Date 1] and [Time 2, Date 2].
+426. When is the vernal equinox?
+427. When is the summer solstice?
+428. Calculate my age in days.
+429. What is a fiscal year?
+430. When did the 21st century begin?
+431. How many hours until the weekend?
+432. What time does the stock market open in New York?
+433. Set a recurring reminder every day at 9 AM.
+434. What is golden hour today?
+435. What is blue hour today?
+436. How long is a lunar cycle?
+437. Convert 100 minutes into hours and minutes.
+438. How many time zones are there in Russia?
+439. What is a Julian date?
+440. Set an alarm that plays [Song Name].
+441. How long is a geological eon?
+442. What time is it on the west coast of the US?
+443. Show me a calendar for next month.
+444. How many hours of daylight will there be tomorrow?
+445. When is the next solar eclipse visible from my location?
+446. How long does it take for light from the sun to reach Earth?
+447. How many business days until the end of the month?
+448. What time do the polls close on election day?
+449. Show me a timeline of the Roman Empire. (Historical time)
+450. What is my current location's time zone abbreviation?
+451. How many days were in the year [Year]?
+452. Set an alarm for 25 minutes from now.
+453. What is the date of Thanksgiving this year?
+454. Convert 2 years into seconds.
+455. What is 'atomic time'?
+456. How many days are there between [Date 1] and [Date 2]?
+457. What time is it in Greenwich Mean Time?
+458. What is a millennium?

@@ -1,0 +1,19 @@
+steps:
+  - name: gcr.io/cloud-builders/docker
+    args: ["build", "-t", "gcr.io/${_PROJECT_ID}/adk-mobile-service:latest", "."]
+  - name: gcr.io/cloud-builders/docker
+    args: ["push", "gcr.io/${_PROJECT_ID}/adk-mobile-service:latest"]
+  - name: gcr.io/google.com/cloudsdktool/cloud-sdk
+    entrypoint: gcloud
+    args:
+      [
+        "run","deploy","adk-mobile-service",
+        "--image","gcr.io/${_PROJECT_ID}/adk-mobile-service:latest",
+        "--platform","managed",
+        "--region","us-central1",
+        "--allow-unauthenticated",
+        "--set-env-vars","PROJECT_ID=${_PROJECT_ID}",
+        "--set-secrets","GOOGLE_API_KEY=GOOGLE_API_KEY:latest,MAP_API_KEY=MAP_API_KEY:latest,OWM_API_KEY=OWM_API_KEY:latest"
+      ]
+images:
+  - gcr.io/${_PROJECT_ID}/adk-mobile-service:latest

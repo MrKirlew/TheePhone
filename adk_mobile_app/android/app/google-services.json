@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "843267258954",
+    "project_id": "twothreeatefi",
+    "storage_bucket": "twothreeatefi.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:843267258954:android:3f040ebd680676c92ec4b3",
+        "android_client_info": {
+          "package_name": "com.kirlewai.agent"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "843267258954-0okhg90uso8rkjh2jecp8ugthcp6smnb.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.kirlewai.agent",
+            "certificate_hash": "59a10eda5bf056e927e43f53d946a15acde89d57"
+          }
+        },
+        {
+          "client_id": "843267258954-mc04n5od104s75to3umjl46rva3p0r0s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAgoi1Dp7TjQVtowR-wmZGHZ_FX7tcT4QQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "843267258954-mc04n5od104s75to3umjl46rva3p0r0s.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
