@@ -1,0 +1,185 @@
+Below is a comprehensive, end‑to‑end blueprint plus starter implementation for a mobile (Flutter) + Google Cloud + ADK (Python) multi‑agent conversational app you can deploy and run from Ubuntu 24.04.3 LTS. It is tailored to:
+
+Natural, human‑like multi‑turn conversation (non‑robotic persona)
+Reasoning, logic, perception (image understanding), memory (short + long term), continuous learning (feedback loop), and actions (tool/API calls)
+Integration with (a practical subset of) your enabled Google / external APIs (Maps/Geocoding, Weather, Vision, Gemini multimodal, Firestore, Secret Manager)
+Budget constraint ≈ $50/month (with cost strategies/caps)
+No FastAPI (we use a lightweight aiohttp server; could also adapt to Cloud Functions Gen2)
+Deployment on Cloud Run (recommended) and a Flutter client (APK or sideload)
+Use of Secret Manager for GOOGLE_API_KEY, MAP_API_KEY, OWM_API_KEY
+Option to send text, images (camera), and recorded audio (converted to text)
+Extensible multi-agent orchestration pattern following the custom agent approach in llms-full.txt
+You can copy, adapt, or expand these files. (All secret values are references—never hardcode them.)
+ARCHITECTURE OVERVIEW
+Client (Flutter on phone)
+
+Captures user text, microphone audio (transcribed via Cloud Speech-to-Text or Gemini multimodal if you prefer), and images (camera).
+Displays streaming assistant responses (Server-Sent Events / chunked JSON).
+Allows user feedback (thumbs up/down) to reinforce learning.
+Backend (Cloud Run container, Python ADK)
+
+Gateway (aiohttp) endpoint /chat for text/audio/image requests.
+OrchestratorAgent (custom BaseAgent subclass) routes intent to:
+ConversationAgent (LlmAgent) – general dialogue & reasoning
+PerceptionAgent – multimodal image analysis (Gemini)
+WeatherAgent – calls OpenWeatherMap API
+LocationAgent – geocodes addresses / reverse geocode with Maps Geocoding API
+MemoryAgent – embed & retrieve personal context (Firestore + simple embedding)
+ToolAgent(s) – placeholder for other APIs as you add them
+Memory Layers:
+Short-term session context via ADK’s session state
+Long-term user profile / facts / preferences in Firestore
+Vector similarity (basic): store embeddings in Firestore (or later upgrade to Vertex AI Matching Engine)
+Continuous Learning:
+User feedback stored (rating + conversation turn) to refine prompt scaffolding / fine-grained retrieval
+Periodic background batch to promote “frequently referenced + high-rated” facts into user profile memory
+Secrets loaded at startup from environment variables (injected by Secret Manager).
+Cost controls: usage caps, low-latency Gemini model (gemini-2.0-flash) as default; escalate selectively (e.g., gemini-2.0-pro for complex reasoning if monthly remaining budget > threshold)
+APIs/Services Used (Minimal Viable Subset)
+
+Gemini (Generative Language / Gemini for Google Cloud) – reasoning + multimodal
+Vision API (optional fallback for OCR / object detection; Gemini can also handle many vision tasks)
+Maps Geocoding API
+OpenWeatherMap (OWM)
+Firestore (memory)
+Secret Manager
+(Optional) Cloud Speech-to-Text API (if not using Gemini audio)
+Cloud Run (deployment), Cloud Build (CI/CD)
+Logging & Monitoring APIs (basic)
+You have a large list of enabled APIs; keep only active ones to avoid confusion—unused APIs don’t typically add cost, but pruning helps clarity.
+
+BUDGET STRATEGY (~$50/MONTH)
+Approx baseline (illustrative, adjust to traffic):
+
+Gemini 2.0 Flash: Keep average 500–1,000 short requests/month (should be well below $20—actual pricing depends on region & current public pricing; verify).
+Firestore: Few MB storage + low read/writes (<< $5).
+Maps Geocoding: Cache previous queries; maybe a few hundred calls (<$5).
+OWM: Often free tier adequate.
+Cloud Run: 1 small instance (minScale=0) autoscales – maybe $5–10 depending on invocations.
+Speech-to-Text (if used) sparingly: $5–10.
+Vision or Gemini for images (choose one modal path to avoid duplicates). Safety:
+Set quota limits in Google Cloud Console for Gemini, Vision, Speech.
+Implement daily usage counters in Firestore and block/upscale gracefully.
+Use fallback “I need to conserve resources” reply when near cap.
+FILE SET
+Below are proposed files. You can reorganize, but this layout is Cloud Run friendly.
+
+Directory layout: backend/ app/ main.py config.py agents/ orchestrator_agent.py memory_agent.py perception_agent.py tool_wrappers.py services/ session_firestore.py memory_store.py embedding.py feedback.py budget_guard.py utils/ http_stream.py logging.py requirements.txt Dockerfile cloudbuild.yaml flutter_client/ lib/ main.dart api_client.dart conversation_model.dart widgets/ message_bubble.dart input_bar.dart pubspec.yaml
+
+DEPLOY STEPS (UBUNTU 24.04.3)
+gcloud setup gcloud auth login gcloud config set project twothreeatefi gcloud services enable run.googleapis.com secretmanager.googleapis.com firestore.googleapis.com
+
+Firestore In console: Create Firestore in Native mode (Region close to Cloud Run region).
+
+Secrets echo -n "YOUR_GOOGLE_API_KEY_VALUE" | gcloud secrets create GOOGLE_API_KEY --data-file=- echo -n "YOUR_MAPS_API_KEY_VALUE" | gcloud secrets create MAP_API_KEY --data-file=- echo -n "YOUR_OWM_API_KEY_VALUE" | gcloud secrets create OWM_API_KEY --data-file=-
+
+Build & deploy cd backend gcloud builds submit --config cloudbuild.yaml --substitutions=_PROJECT_ID=twothreeatefi
+
+Allow unauthenticated (Cloud Build step already sets it). Get service URL: gcloud run services describe adk-mobile-backend --region us-central1 --format 'value(status.url)'
+
+Update Flutter base URL: Replace YOUR_CLOUD_RUN_URL in api_client.dart
+
+Flutter build (on Ubuntu) cd flutter_client flutter pub get flutter build apk --release adb install build/app/outputs/flutter-apk/app-release.apk (Or transfer APK file manually.)
+
+ADDING IMAGE CAPTURE / AUDIO (EXTENSIONS)
+Flutter:
+
+Use image_picker or camera to get bytes, convert to base64, include in /chat payload (image_base64).
+For audio: record using a plugin (e.g. recorder_wav) → send to backend for transcription (add new /transcribe endpoint leveraging Speech-to-Text or Gemini audio input). Insert resulting text as message.
+Backend:
+
+Add transcription logic (optional): from google.cloud import speech # Implement streaming or batch recognition. Then set session.state["user_query"]=transcribed_text
+CONTINUOUS LEARNING LOOP
+After each conversation:
+
+Store final response and user query.
+If user provides feedback rating ≥ 1 and query contains explicit preference (“I like...”, “My birthday is...”), parse and store as memory.
+Periodic batch:
+
+Cloud Scheduler daily job triggers Cloud Run job or Cloud Function analyzing feedback & frequency. Promote top facts into memory with higher weight.
+Instruction Tuning (soft):
+
+At session start, aggregate top memory_context into the conversation_agent’s dynamic instruction (you can wrap conversation_agent with a dynamic instruction provider referencing state variables, as per instruction templating described in llms-full.txt: e.g. include {memory_context?} tokens).
+COST CONTROLS IMPLEMENTATION
+budget_guard increments per request; extend to track token usage (estimate by length) and set soft-halts.
+Add an environment variable e.g. MAX_DAILY_REQUESTS=300 to tighten.
+Introduce logic: if remaining quota < 10% then force minimal responses (“Short mode").
+SECURITY & HARDENING
+Enforce OAuth / Firebase Auth later for user_id authenticity.
+Validate image size & content type.
+Rate-limit per IP (e.g., integrate Cloud Armor or custom counter).
+CORS policy if you expose to web.
+EXTENDING TO MORE APIs
+Create new tool functions (e.g., Calendar summary, Drive doc search) and persist relevant data in session.state; the ConversationAgent can reference a tools summary block (e.g., state["tool_results"]). For complex dynamic tool invocation, implement a planning LlmAgent that decides a sequence of tool calls (future iteration).
+
+UPGRADING PERCEPTION
+If Gemini alone handles images sufficiently, skip Vision API. For specialized OCR or label detection fallback:
+
+If gemini text confidence < threshold, call Vision DOCUMENT_TEXT_DETECTION and merge results into image_context.
+NON-ROBOTIC CONVERSATION TIPS
+Refine conversation_agent instruction:
+
+Add few-shot examples of friendly, varied responses.
+Insert user persona memory context.
+Randomize mild stylistic variations (state var like style_variant chosen from set).
+Penalize repetitive phrases: instruct “Avoid repeating identical openings like ‘Sure,’ ‘Certainly.’ Vary natural language.”
+NEXT STEPS CHECKLIST
+Enable Firestore & Secrets – done.
+Deploy base container to Cloud Run – done.
+Test /chat with curl.
+Add image capture in Flutter & test base64 pipeline.
+Add audio transcription endpoint if needed.
+Implement feedback UI (thumbs icons) calling /feedback.
+Expand memory extraction (simple regex for “I like”, “My name is”).
+Monitor costs via Cloud Billing → set budget alerts (already have $50 plan—configure threshold alerts at 50%, 80%, 100%).
+Gradually introduce advanced tool flows or upgrade embeddings.
+SAMPLE CURL TEST
+curl -X POST https://YOUR_CLOUD_RUN_URL/chat
+-H "Content-Type: application/json"
+-d '{"user_id":"u1","session_id":"s1","message":"Hi, remember I love hiking in forests."}'
+
+Expect streamed JSON lines.
+
+FUTURE IMPROVEMENTS
+Intent classification agent (lightweight) to decide early which tools to prep.
+Replace naive hashing embedding with actual Gemini embedding model call.
+Add retrieval-augmented generation for documents (Drive/Docs integration).
+Offline caching on device for recent conversation.
+Multi-turn tool chains (plan → execute → reflect).
+Push notifications (Firebase Cloud Messaging) for proactive updates (e.g., weather alerts).
+CONCLUSION
+This starter implementation follows the ADK multi-agent pattern described in your llms-full.txt (custom orchestrator, sub-agents, session state, conditional logic). It is intentionally modular so you can progressively enhance perception, memory sophistication, and tool orchestration while staying within your monthly budget.
+
+Let me know if you’d like:
+
+A dynamic instruction templating example
+Audio transcription endpoint code
+Automated memory extraction logic
+Migration to Vertex AI Agent Engine later
+Happy building! Would you like a follow-up snippet for audio transcription or an advanced memory promotion job? Just ask.
+
+You said: this code should have Intent classification agent
+this code should have Intent classification agent (lightweight) to decide early which tools to prep.
+Replace naive hashing embedding with actual Gemini embedding model call.
+Add retrieval-augmented generation for documents (Drive/Docs integration).
+Offline caching on device for recent conversation.
+Multi-turn tool chains (plan → execute → reflect).
+Push notifications (Firebase Cloud Messaging) for proactive updates (e.g., weather alerts).
+Copilot said: Below are the updated and new files
+Below are the updated and new files incorporating your requested features:
+
+Added / Updated Features:
+
+Intent Classification Agent (lightweight) to pre-select tools and pipeline agents.
+Actual Gemini embedding model (text-embedding-004) instead of naive hash.
+Retrieval-Augmented Generation (RAG) for Google Drive / Google Docs (index + retrieve).
+Multi-turn tool chains (plan → execute → reflect) via PlanningAgent + ReflectionAgent.
+Push notifications (Firebase Cloud Messaging) for proactive alerts (e.g., weather changes).
+Offline caching on device (Flutter) for recent conversations.
+Drive/Docs document ingestion + embedding index.
+Device-side message cache + restoration on startup.
+You will need to:
+
+Enable Drive API and Docs API (already enabled per your list).
+Create a service account with proper scopes if running server-to-server (or use workload identity).
+Add firebase project config to Flutter (google-services.json) and set up FCM.
