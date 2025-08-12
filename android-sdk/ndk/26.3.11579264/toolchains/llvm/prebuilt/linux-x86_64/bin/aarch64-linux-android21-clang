@@ -1,8 +1,3 @@
-#!/usr/bin/env bash
-bin_dir=`dirname "$0"`
-if [ "$1" != "-cc1" ]; then
-    "$bin_dir/clang" --target=aarch64-linux-android21 "$@"
-else
-    # Target is already an argument.
-    "$bin_dir/clang" "$@"
-fi
+version https://git-lfs.github.com/spec/v1
+oid sha256:7af849dbf63c08c55fd8ad729b243ca0a4b7af05c192a03b3cdb11147d4db6c9
+size 201
